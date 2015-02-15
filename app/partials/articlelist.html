@@ -4,7 +4,7 @@
 		    <a ui-sref="index"><button type="button" class="btn btn-primary">Main</button></a>
 		 </div>
 	 </div><!-- row -->
-	<h4>Article List</h4>
+	<h4>{{hits}} hits</h4>
 	<!-- div class="wls-articlelist-container" -->
 	<div data-ng-repeat="article in articles">
 		<div class="row">
@@ -15,6 +15,7 @@
 							<div data-ng-repeat="keyword in article.keywords">
 								{{keyword.name}} = {{keyword.value}}
 							</div>
+							pub date: {{article.pub_date}}<br>
 							<a href="{{article.web_url}}" target="_blank">article</a>
 						</accordion-group>
 					<accordion>

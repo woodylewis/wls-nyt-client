@@ -32,6 +32,7 @@ angular.module('wlsApp', [
   	apiService.fetchArticles()
   	.then(function(data) {
   		$scope.articles = data.response.docs; 	
+  		$scope.hits = data.response.meta.hits;
 	    console.log('articles', $scope.articles);
   	}), function(error) {
   		console.log('fetch articles error', error);
