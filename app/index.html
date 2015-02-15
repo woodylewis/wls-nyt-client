@@ -1,0 +1,87 @@
+ <!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="wlsApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="wlsApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="wlsApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="wlsApp" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>WL Solutions LLC</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="AngularJS, MEAN Stack, Node.js, Express.js, MongoDB">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="wls-app.css">
+  <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
+</head>
+<body>
+
+  <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+  <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                 <!--- Font Awesome -->
+                <a class="navbar-brand" href="/" title="Woody Lewis">
+                    <i class="fa fa-home fa-stack-lg fa-inverse"></i>
+                </a>
+                <a class="navbar-brand" href="https://github.com/woodylewis" title="github/woodylewis" target="_blank">
+                    <i class="fa fa-github fa-stack-lg fa-inverse"></i>
+                </a>
+                <a class="navbar-brand" href="http://www.linkedin.com/in/woodylewismba" title="linkedin/woodylewis" target="_blank">
+                    <i class="fa fa-linkedin-square fa-stack-lg fa-inverse"></i>
+                </a>
+                <!--- Font Awesome -->
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="http://wlsllc.com" title="WL Solutions LLC" target="_blank">WLS</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <div class="container">
+      <div class="row">
+          <div class="col-lg-12 text-center">
+              <h3>AngularJS - API Client</h3>
+                  <p>
+          </div>
+      </div>
+      
+      <div data-ng-controller="MainCtrl">
+        <div ui-view="state"></div>    
+      </div>
+    </div><!-- container -->
+
+
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="services/services.js"></script>
+  <script src="services/d3.js"></script>
+  <script src="wls-app.js"></script>
+</body>
+</html>
