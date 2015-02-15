@@ -6,20 +6,21 @@
 	 </div><!-- row -->
 	<h4>Article List</h4>
 	<!-- div class="wls-articlelist-container" -->
-		<div data-ng-repeat="article in articles">
-			<div class="row">
-				<div class="col-md-6 col-md-offset-2">
-					<div class="wls-article-container">
-						<accordion>
-							<accordion-group heading={{article.headline.main}}>
-								<div data-ng-repeat="keyword in article.keywords">
-									{{keyword.name}} = {{keyword.value}}
-								</div>
-							</accordion-group>
-						<accordion>
-					</div>
+	<div data-ng-repeat="article in articles">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-2">
+				<div class="wls-article-container">
+					<accordion>
+						<accordion-group heading={{article.headline.main}}>
+							<div data-ng-repeat="keyword in article.keywords">
+								{{keyword.name}} = {{keyword.value}}
+							</div>
+							<a href="{{article.web_url}}" target="_blank">article</a>
+						</accordion-group>
+					<accordion>
 				</div>
-			</div><!-- row -->
-		</div>
+			</div>
+		</div><!-- row -->
+	</div>
 	<!-- /div --><!-- wls-articlelist-container -->
 </div><!-- container -->
