@@ -25,9 +25,15 @@ angular.module('wlsApp', [
 				"state" : { templateUrl: "partials/articlelist.html",}
 			}
 		})
+		.state('keywords', {
+			url: "/keywords",
+			views: {
+				"state" : { templateUrl: "partials/keywords.html",}
+			}
+		})
+
 }])
 .controller('MainCtrl', ['$scope', '$window', '$state', 'apiService', function($scope, $window, $state, apiService) {
-
 	//----------------- ARTICLES LIST ----------------------
   	apiService.fetchArticles()
   	.then(function(data) {
@@ -37,4 +43,22 @@ angular.module('wlsApp', [
   	}), function(error) {
   		console.log('fetch articles error', error);
   	};
+
+  	$scope.buildKeywords = function() {
+  		$scope.keyWords = [];
+  		angular.forEach($scope.articles, function (article) {
+  			angular.forEach(article.keywords, function(keyword) {
+  				//console.log('keyword', keyword);
+  				var k = { "rank" : keyword.rank,
+  						  "major": keyword.is_major,
+  						  "name" : keyword.name,
+  						  "value": keyword.value  
+  						};
+  				$scope.keyWords.push(k);
+  			});
+  		});
+  			console.log('$scope.keyWords', $scope.keyWords);
+  			$state.go('keywords');
+  	};
+
 }]); 
