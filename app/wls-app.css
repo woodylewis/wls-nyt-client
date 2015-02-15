@@ -1,6 +1,6 @@
 /* app css stylesheet */
 
-.nav, .wls-stock-container, .panel-title a { cursor: pointer; }
+.nav, .wls-article-container, .panel-title a { cursor: pointer; }
 
 body {
     text-align: center;
@@ -11,22 +11,6 @@ body {
 .wls-copy {
     margin:0 auto;
     text-align: left;
-    border:1px solid gray;
-    padding:1em;
-    width:50%;
-}
-
-.wls-stock-copy {
-    margin:0 auto;
-    text-align: left;
-    border:1px solid gray;
-    padding:1em;
-    width:30%;
-}
-
-.wls-stock-edit {
-    margin:0 auto;
-    text-align: center;
     border:1px solid gray;
     padding:1em;
     width:50%;
@@ -48,58 +32,30 @@ body {
     margin:.2em;
 }
 
-.wls-stocklist-container {
+.wls-articlelist-container {
+    /*
     width:80%;
-    height:50%;
+    height:50%;*/
 	margin:0 auto;
-	text-align: center;
+	text-align:center;
 }
 
-.wls-stock-container {
-    display:inline-block;
+.wls-article-container {
     position:relative;
-    float:left;
+    /*
     width:20%;
-    height:2em;
+    height:2em;*/
+    padding:.1em;
     margin:.2em;
-    text-align: center;
+    text-align:left;
     border:1px solid gray;
 }
 
-.wls-stock-box {
+.wls-article-box {
     margin:0 auto;
     text-align: left;
     border:1px solid gray;
     padding:1em;
     width:20em;
     height:20em;
-}
-
-.wls-stock-bar {
-    text-align: center;
-    position: relative;
-    /*padding:1em;*/
-    margin:1em;
-    border:1px solid gray;
-}
-
-.axis path, .axis line
-{
-    fill: grey;
-    stroke: #777;
-    shape-rendering: crispEdges;
-}
-        
-.axis text
-{
-    font-family: 'Arial';
-    font-size: 12px;
-}
-.tick
-{
-    stroke-dasharray: 1, 2;
-}
-.bar
-{
-    fill: teal;
 }
