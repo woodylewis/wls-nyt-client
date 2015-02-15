@@ -1,6 +1,6 @@
-#wls-api-client
+#wls-nyt-client
 
-Basic CRUD operations from AngularJS client to Node-Express-MongoDB server
+AngularJS client to query New York Times Articles API. Proof of concept: semantic ranking for credibility check.
 
 ```
 bower install angular-bootstrap
