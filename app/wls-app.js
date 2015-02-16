@@ -39,43 +39,44 @@ angular.module('wlsApp', [
 		})
 
 }])
-.directive('wlsPiechart', ['d3Service', function(d3Service){
+.directive('wlsBarchart', ['d3Service', function(d3Service){
   return {
     restrict: 'E',
-    transclude: true,
-	templateUrl: 'templates/piecharts.html',
+	templateUrl: 'templates/barcharts.html',
 
    link: function($scope) {
 
 		d3Service.d3().then(function(d3) {
-			function pieChart(data, svgRegion, width, height) {		    
-				d3.select(svgRegion).select('svg').remove();
-				//--- START WITH GREEN FOR CASH -----
-				var color = ['#2ca02c', '#1f77b4','#ff7f0e','#d62728'];
-			    var data = data;
-			    var min = Math.min(width, height);
-			    var svg = d3.select(svgRegion).append('svg');
-			    var pie = d3.layout.pie().sort(null);
-			    var arc = d3.svg.arc()
-			      .outerRadius(min / 2 * 0.9);
+			
+			function barChart(data, svgRegion, width, barHeight) {
+				var x = d3.scale.linear()
+				    .domain([0, d3.max(data)])
+				    .range([0, width]);
 
-			    svg.attr({width: width, height: height});
-			    var g = svg.append('g')
-			      // center the chart
-			      .attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')');
-			    // add the <path>s for each arc slice
-			    g.selectAll('path').data(pie(data))
-			      .enter().append('path')
-			        .attr('d', arc)
-			        .attr('fill', function(d, i){ return color[i] });
-			}//--- pieChart ----
+				var chart = d3.select(svgRegion)
+				    .attr("width", width)
+				    .attr("height", barHeight * data.length);
 
-			var persons = $scope.$parent.personRanks; 
-	    	var subject	= $scope.$parent.subjectRanks; 
-	    	var creative_works	= $scope.$parent.CreativeWorksRanks; 
-	    	var organizations = $scope.$parent.organizations;
+				var bar = chart.selectAll("g")
+				    .data(data)
+				  .enter().append("g")
+				    .attr("transform", function(d, i) { return "translate(0," + i * barHeight + ")"; });
 
-			pieChart(persons, "#chart", 120, 120);
+				bar.append("rect")
+				    .attr("width", x)
+				    .attr("height", barHeight - 1);
+
+				bar.append("text")
+				    .attr("x", function(d) { return x(d) - 16; })
+				    .attr("y", barHeight / 2)
+				    .attr("dy", ".35em")
+				    .text(function(d) { return d; });
+			}
+
+			barChart($scope.$parent.personRanks, "#persons", 120, 16);
+			barChart($scope.$parent.subjectRanks, "#subjects", 120, 16);
+			barChart($scope.$parent.CreativeWorksRanks, "#creative_works", 120, 16);			
+			barChart($scope.$parent.organizations, "#organizations", 120, 16);						
 
 		});//-- d3Service ---
 	}//-- link ---

@@ -67,3 +67,39 @@ body {
     text-align:center;
     width:80%;
 }
+
+#persons rect {
+  fill: steelblue;
+}
+
+#persons text {
+  fill: white;
+  font:8px sans-serif;
+}
+
+#subjects rect {
+  fill: steelblue;
+}
+
+#subjects text {
+  fill: white;
+  font:8px sans-serif;
+}
+
+#creative_works rect {
+  fill: steelblue;
+}
+
+#creative_works text {
+  fill: white;
+  font:8px sans-serif;
+}
+
+#organizations rect {
+  fill: steelblue;
+}
+
+#organizations text {
+  fill: white;
+  font:8px sans-serif;
+}
