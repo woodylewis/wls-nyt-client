@@ -1,17 +1,21 @@
 <div class="container">
 	<div class="row">
 		 <div id="wls-button-panel">
-		    <a ui-sref="index"><button type="button" class="btn btn-primary">Main</button></a>
-		    <div data-ng-click="buildKeywords()"><button type="button" class="btn btn-primary">Keywords</button></div>
+		 	<div class="wls-button">
+			    <a ui-sref="index"><button type="button" class="btn btn-primary">Main</button></a>
+		    </div>
+		 	<div class="wls-button">
+			    <div data-ng-click="buildKeywords()"><button type="button" class="btn btn-primary">Keywords</button></div>
+			    </div>
 		 </div>
 	 </div><!-- row -->
 	<!-- div class="wls-articlelist-container" -->
 	<div data-ng-repeat="article in articles">
 		<div class="row">
-			<div class="col-md-6 col-md-offset-2">
+			<div class="col-md-8 col-md-offset-2">
 				<div class="wls-article-container">
 					<accordion>
-						<accordion-group heading={{article.headline.main}}>
+						<accordion-group heading={{article.headline.main}} is-open="$first">
 							<div data-ng-repeat="keyword in article.keywords">
 								{{keyword.name}} = {{keyword.value}}
 							</div>

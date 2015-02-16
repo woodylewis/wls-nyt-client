@@ -37,8 +37,7 @@ angular.module('wlsApp', [
 	//----------------- ARTICLES LIST ----------------------
   	apiService.fetchArticles()
   	.then(function(data) {
-  		$scope.articles = data.response.docs; 	
-  		$scope.hits = data.response.meta.hits;
+  		$scope.articles = data.response.docs; 
 	    console.log('articles', $scope.articles);
   	}), function(error) {
   		console.log('fetch articles error', error);
@@ -48,7 +47,6 @@ angular.module('wlsApp', [
   		$scope.keyWords = [];
   		angular.forEach($scope.articles, function (article) {
   			angular.forEach(article.keywords, function(keyword) {
-  				//console.log('keyword', keyword);
   				var k = { "rank" : keyword.rank,
   						  "major": keyword.is_major,
   						  "name" : keyword.name,

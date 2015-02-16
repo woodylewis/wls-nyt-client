@@ -18,6 +18,8 @@ body {
 
 #wls-button-panel {
     margin:2em;
+    text-align:center;
+    /*border:1px solid gray;*/  
 }
 
 #wls-button-panel-secondary {
