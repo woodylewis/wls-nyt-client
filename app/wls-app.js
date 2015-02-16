@@ -72,20 +72,21 @@ angular.module('wlsApp', [
 
   		$scope.personRanks = [];
   		buildTypeRankList("persons", kList, $scope.personRanks);
-/*
-  		angular.forEach($scope.keyWordTypes, function(type) {
-  			for(var $i = 0; $i < kList.length; $i++) {
-  				if(kList[$i].name == "persons") {
-  					$scope.personRanks.push(kList[$i].rank);
-  				}
-  			}
-  		});
-*/ 
-  			//console.log('kList ', kList);
-  			console.log('keyWordTypes', $scope.keyWordTypes);
-  			console.log('$scope.personRanks ', $scope.personRanks);
-  			//console.log('$scope.keyWords', $scope.keyWords);
-  			$state.go('keywords');
+		$scope.subjectRanks = [];
+  		buildTypeRankList("subject", kList, $scope.subjectRanks);
+		$scope.CreativeWorksRanks = [];
+  		buildTypeRankList("creative_works", kList, $scope.CreativeWorksRanks);
+		$scope.organizations = [];
+  		buildTypeRankList("organizations", kList, $scope.organizations);
+
+  		console.log('kList ', kList);
+		console.log('keyWordTypes', $scope.keyWordTypes);
+		console.log('$scope.personRanks ', $scope.personRanks);
+		console.log('$scope.subjectRanks ', $scope.subjectRanks);
+		console.log('$scope.CreativeWorksRanks ', $scope.CreativeWorksRanks);
+		console.log('$scope.organizations ', $scope.organizations);
+		//console.log('$scope.keyWords', $scope.keyWords);
+		$state.go('keywords');
 
   		function buildTypeRankList(theType, typeArray, rankArray) {
   			angular.forEach($scope.keyWordTypes, function(type) {
