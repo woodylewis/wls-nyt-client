@@ -31,7 +31,55 @@ angular.module('wlsApp', [
 				"state" : { templateUrl: "partials/keywords.html",}
 			}
 		})
+		.state('charts', {
+			url: "/charts",
+			views: {
+				"state" : { templateUrl: "partials/charts.html",}
+			}
+		})
 
+}])
+.directive('wlsPiechart', ['d3Service', function(d3Service){
+  return {
+    restrict: 'E',
+    transclude: true,
+	templateUrl: 'templates/piecharts.html',
+
+   link: function($scope) {
+
+		d3Service.d3().then(function(d3) {
+			function pieChart(data, svgRegion, width, height) {		    
+				d3.select(svgRegion).select('svg').remove();
+				//--- START WITH GREEN FOR CASH -----
+				var color = ['#2ca02c', '#1f77b4','#ff7f0e','#d62728'];
+			    var data = data;
+			    var min = Math.min(width, height);
+			    var svg = d3.select(svgRegion).append('svg');
+			    var pie = d3.layout.pie().sort(null);
+			    var arc = d3.svg.arc()
+			      .outerRadius(min / 2 * 0.9);
+
+			    svg.attr({width: width, height: height});
+			    var g = svg.append('g')
+			      // center the chart
+			      .attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')');
+			    // add the <path>s for each arc slice
+			    g.selectAll('path').data(pie(data))
+			      .enter().append('path')
+			        .attr('d', arc)
+			        .attr('fill', function(d, i){ return color[i] });
+			}//--- pieChart ----
+
+			var persons = $scope.$parent.personRanks; 
+	    	var subject	= $scope.$parent.subjectRanks; 
+	    	var creative_works	= $scope.$parent.CreativeWorksRanks; 
+	    	var organizations = $scope.$parent.organizations;
+
+			pieChart(persons, "#chart", 120, 120);
+
+		});//-- d3Service ---
+	}//-- link ---
+  };
 }])
 .controller('MainCtrl', ['$scope', '$window', '$state', 'apiService', function($scope, $window, $state, apiService) {
 	//----------------- ARTICLES LIST ----------------------
@@ -95,5 +143,4 @@ angular.module('wlsApp', [
   				}
   			}
   	};
-
 }]); 
