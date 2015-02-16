@@ -70,33 +70,30 @@ angular.module('wlsApp', [
   			}
   		});
 
-  		$scope.personRanks = [];
-  		buildTypeRankList("persons", kList, $scope.personRanks);
+		$scope.personRanks = [];
+		buildTypeRankList("persons", kList, $scope.personRanks);
 		$scope.subjectRanks = [];
-  		buildTypeRankList("subject", kList, $scope.subjectRanks);
+		buildTypeRankList("subject", kList, $scope.subjectRanks);
 		$scope.CreativeWorksRanks = [];
-  		buildTypeRankList("creative_works", kList, $scope.CreativeWorksRanks);
+		buildTypeRankList("creative_works", kList, $scope.CreativeWorksRanks);
 		$scope.organizations = [];
-  		buildTypeRankList("organizations", kList, $scope.organizations);
+		buildTypeRankList("organizations", kList, $scope.organizations);
 
-  		console.log('kList ', kList);
+  	console.log('kList ', kList);
 		console.log('keyWordTypes', $scope.keyWordTypes);
 		console.log('$scope.personRanks ', $scope.personRanks);
 		console.log('$scope.subjectRanks ', $scope.subjectRanks);
 		console.log('$scope.CreativeWorksRanks ', $scope.CreativeWorksRanks);
 		console.log('$scope.organizations ', $scope.organizations);
-		//console.log('$scope.keyWords', $scope.keyWords);
 		$state.go('keywords');
 
   		function buildTypeRankList(theType, typeArray, rankArray) {
-  			angular.forEach($scope.keyWordTypes, function(type) {
   				for(var $i = 0; $i < typeArray.length; $i++) {
 	  				if(typeArray[$i].name == theType) {
 	  					rankArray.push(typeArray[$i].rank);
 	  				}
   				}
-  			});
-  		}
+  			}
   	};
 
 }]); 
