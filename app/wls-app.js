@@ -65,14 +65,37 @@ angular.module('wlsApp', [
   		});
   		//-- BUILD UNIQUE KEYWORD LIST
   		angular.forEach(kList, function(k) {
-  			//console.log('name, rank ', k.name, k.rank);
   			if($scope.keyWordTypes.indexOf(k.name) == -1) {
   				$scope.keyWordTypes.push(k.name);
   			}
   		});
+
+  		$scope.personRanks = [];
+  		buildTypeRankList("persons", kList, $scope.personRanks);
+/*
+  		angular.forEach($scope.keyWordTypes, function(type) {
+  			for(var $i = 0; $i < kList.length; $i++) {
+  				if(kList[$i].name == "persons") {
+  					$scope.personRanks.push(kList[$i].rank);
+  				}
+  			}
+  		});
+*/ 
+  			//console.log('kList ', kList);
   			console.log('keyWordTypes', $scope.keyWordTypes);
+  			console.log('$scope.personRanks ', $scope.personRanks);
   			//console.log('$scope.keyWords', $scope.keyWords);
   			$state.go('keywords');
+
+  		function buildTypeRankList(theType, typeArray, rankArray) {
+  			angular.forEach($scope.keyWordTypes, function(type) {
+  				for(var $i = 0; $i < typeArray.length; $i++) {
+	  				if(typeArray[$i].name == theType) {
+	  					rankArray.push(typeArray[$i].rank);
+	  				}
+  				}
+  			});
+  		}
   	};
 
 }]); 
