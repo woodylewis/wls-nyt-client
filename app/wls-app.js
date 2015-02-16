@@ -45,17 +45,33 @@ angular.module('wlsApp', [
 
   	$scope.buildKeywords = function() {
   		$scope.keyWords = [];
+  		$scope.keyWordTypes = []; 
+		var kList = [];
   		angular.forEach($scope.articles, function (article) {
   			angular.forEach(article.keywords, function(keyword) {
-  				var k = { "rank" : keyword.rank,
-  						  "major": keyword.is_major,
-  						  "name" : keyword.name,
-  						  "value": keyword.value  
-  						};
-  				$scope.keyWords.push(k);
+  				var k1 = { 	"rank" : keyword.rank,
+  						  	"name" : keyword.name  
+  						}; 
+  				kList.push(k1);
+
+  				var k2 = {
+  							"rank" : keyword.rank,
+  						  	"major": keyword.is_major,
+  						  	"name" : keyword.name,
+  						  	"value": keyword.value  
+  						}; 
+  				$scope.keyWords.push(k2);
   			});
   		});
-  			console.log('$scope.keyWords', $scope.keyWords);
+  		//-- BUILD UNIQUE KEYWORD LIST
+  		angular.forEach(kList, function(k) {
+  			//console.log('name, rank ', k.name, k.rank);
+  			if($scope.keyWordTypes.indexOf(k.name) == -1) {
+  				$scope.keyWordTypes.push(k.name);
+  			}
+  		});
+  			console.log('keyWordTypes', $scope.keyWordTypes);
+  			//console.log('$scope.keyWords', $scope.keyWords);
   			$state.go('keywords');
   	};
 
