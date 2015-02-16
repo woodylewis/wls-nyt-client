@@ -1,9 +1,27 @@
-<div id="wls-button-panel">
-		    <a ui-sref="list"><button type="button" class="btn btn-primary">List</button></a>
-		    <div data-ng-click="buildKeywords()"><button type="button" class="btn btn-primary">Keywords</button></div>
-</div>
-Keywords
-
-<div data-ng-repeat="keyword in keyWords" orderBy: 'rank'>
-	{{keyword.rank}}  {{keyword.major}}  {{keyword.name}}  {{keyword.value}}
-</div>
+<div class="container">
+	<div class="row">
+		<div id="wls-button-panel">
+			<div class="wls-button">
+			    <a ui-sref="index"><button type="button" class="btn btn-primary">Main</button></a>
+		    </div>
+			<div class="wls-button">
+				<a ui-sref="list"><button type="button" class="btn btn-primary">Articles List</button></a>
+		    </div>
+		</div>
+	 </div><!-- row -->
+</div><!-- container -->
+<div class="container">
+	<div class="col-md-8 col-md-offset-4">
+		<div data-ng-repeat="keyword in keyWords" orderBy: 'rank'>
+			<div class="row">
+				<p class="text-left">
+					{{keyword.name}}&nbsp;
+					{{keyword.value}}&nbsp;
+					rank: {{keyword.rank}}&nbsp;  
+					major: {{keyword.major}}
+				</p>
+				</div>
+		 	</div><!-- row -->
+		</div>
+	</div>
+</div><!-- container -->

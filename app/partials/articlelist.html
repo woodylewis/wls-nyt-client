@@ -9,7 +9,6 @@
 			    </div>
 		 </div>
 	 </div><!-- row -->
-	<!-- div class="wls-articlelist-container" -->
 	<div data-ng-repeat="article in articles">
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
@@ -17,7 +16,7 @@
 					<accordion>
 						<accordion-group heading={{article.headline.main}} is-open="$first">
 							<div data-ng-repeat="keyword in article.keywords">
-								{{keyword.name}} = {{keyword.value}}
+								{{keyword.name}} : {{keyword.value}}, rank : {{keyword.rank}}, major: {{keyword.is_major}}
 							</div>
 							pub date: {{article.pub_date}}<br>
 							<a href="{{article.web_url}}" target="_blank">article</a>
@@ -27,5 +26,4 @@
 			</div>
 		</div><!-- row -->
 	</div>
-	<!-- /div --><!-- wls-articlelist-container -->
 </div><!-- container -->
