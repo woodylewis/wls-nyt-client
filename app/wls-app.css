@@ -19,7 +19,6 @@ body {
 #wls-button-panel {
     margin:2em;
     text-align:center;
-    /*border:1px solid gray;*/  
 }
 
 #wls-button-panel-secondary {
@@ -35,18 +34,12 @@ body {
 }
 
 .wls-articlelist-container {
-    /*
-    width:80%;
-    height:50%;*/
 	margin:0 auto;
 	text-align:center;
 }
 
 .wls-article-container {
     position:relative;
-    /*
-    width:20%;
-    height:2em;*/
     padding:.1em;
     margin:.2em;
     text-align:left;
@@ -68,37 +61,9 @@ body {
     width:80%;
 }
 
-#persons rect {
-  fill: steelblue;
-}
-
-#persons text {
-  fill: white;
-  font:8px sans-serif;
-}
-
-#subjects rect {
-  fill: steelblue;
-}
-
-#subjects text {
-  fill: white;
-  font:8px sans-serif;
-}
-
-#creative_works rect {
-  fill: steelblue;
-}
-
-#creative_works text {
-  fill: white;
-  font:8px sans-serif;
-}
-
-#organizations rect {
-  fill: steelblue;
-}
-
+#persons,
+#subjects,
+#creative_works,
 #organizations text {
   fill: white;
   font:8px sans-serif;

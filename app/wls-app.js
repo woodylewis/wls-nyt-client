@@ -49,6 +49,7 @@ angular.module('wlsApp', [
 		d3Service.d3().then(function(d3) {
 			
 			function barChart(data, svgRegion, width, barHeight) {
+				var color = d3.scale.category20b();
 				var x = d3.scale.linear()
 				    .domain([0, d3.max(data)])
 				    .range([0, width]);
@@ -64,7 +65,8 @@ angular.module('wlsApp', [
 
 				bar.append("rect")
 				    .attr("width", x)
-				    .attr("height", barHeight - 1);
+				    .attr("height", barHeight - 1)
+			        .attr('fill', function(d, i){ return color(i) });
 
 				bar.append("text")
 				    .attr("x", function(d) { return x(d) - 16; })
