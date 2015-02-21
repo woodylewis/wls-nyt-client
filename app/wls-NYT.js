@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('wlsNYT', [ 
-  	'services',
 	'ui.router',
 	'ui.bootstrap',
 	'ui.bootstrap.tpls',
+  	'services',
 	'd3'
 ])
 .config(['$stateProvider', '$urlRouterProvider', 
