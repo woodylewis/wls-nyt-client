@@ -1,13 +1,13 @@
 'use strict';
 
-angular.module('wlsApp', [
-  	'wlsApp.services',
+var wlsApp = angular.module('wlsApp', [ 
+  	'services',
 	'ui.router',
 	'ui.bootstrap',
 	'ui.bootstrap.tpls',
 	'd3'
-])
-.config(['$stateProvider', '$urlRouterProvider', 
+]);
+wlsApp.config(['$stateProvider', '$urlRouterProvider', 
 		  	function($stateProvider, $urlRouterProvider) {
 	$urlRouterProvider
 	.otherwise('/index');
@@ -38,8 +38,8 @@ angular.module('wlsApp', [
 			}
 		})
 
-}])
-.directive('wlsBarchart', ['d3Service', function(d3Service){
+}]);
+wlsApp.directive('wlsBarchart', ['d3Service', function(d3Service){
   return {
     restrict: 'E',
 	templateUrl: 'templates/barcharts.html',
@@ -83,8 +83,8 @@ angular.module('wlsApp', [
 		});//-- d3Service ---
 	}//-- link ---
   };
-}])
-.controller('MainCtrl', ['$scope', '$window', '$state', 'apiService', function($scope, $window, $state, apiService) {
+}]);
+wlsApp.controller('MainCtrl', ['$scope', '$window', '$state', 'apiService', function($scope, $window, $state, apiService) {
 	//----------------- ARTICLES LIST ----------------------
   	apiService.fetchArticles()
   	.then(function(data) {
