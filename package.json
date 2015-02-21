@@ -1,6 +1,6 @@
 {
-  "name": "wlsApp",
-  "private": true,
+  "name": "wlsNYT",
+  "private": false,
   "version": "0.0.0",
   "description": "AngularJS demo New York Times client ",
   "repository": "https://github.com/woodylewis/wls-nyt-client",

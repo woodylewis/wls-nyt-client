@@ -1,13 +1,13 @@
 'use strict';
 
-var wlsApp = angular.module('wlsApp', [ 
+angular.module('wlsNYT', [ 
   	'services',
 	'ui.router',
 	'ui.bootstrap',
 	'ui.bootstrap.tpls',
 	'd3'
-]);
-wlsApp.config(['$stateProvider', '$urlRouterProvider', 
+])
+.config(['$stateProvider', '$urlRouterProvider', 
 		  	function($stateProvider, $urlRouterProvider) {
 	$urlRouterProvider
 	.otherwise('/index');
@@ -38,8 +38,8 @@ wlsApp.config(['$stateProvider', '$urlRouterProvider',
 			}
 		})
 
-}]);
-wlsApp.directive('wlsBarchart', ['d3Service', function(d3Service){
+}])
+.directive('wlsBarchart', ['d3Service', function(d3Service){
   return {
     restrict: 'E',
 	templateUrl: 'templates/barcharts.html',
@@ -83,8 +83,8 @@ wlsApp.directive('wlsBarchart', ['d3Service', function(d3Service){
 		});//-- d3Service ---
 	}//-- link ---
   };
-}]);
-wlsApp.controller('MainCtrl', ['$scope', '$window', '$state', 'apiService', function($scope, $window, $state, apiService) {
+}])
+.controller('MainCtrl', ['$scope', '$window', '$state', 'apiService', function($scope, $window, $state, apiService) {
 	//----------------- ARTICLES LIST ----------------------
   	apiService.fetchArticles()
   	.then(function(data) {
@@ -146,4 +146,4 @@ wlsApp.controller('MainCtrl', ['$scope', '$window', '$state', 'apiService', func
   				}
   			}
   	};
-}]); 
+}]);
