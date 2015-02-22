@@ -10,7 +10,7 @@ angular.module('wlsNYT', [
 .config(['$stateProvider', '$urlRouterProvider', 
 		  	function($stateProvider, $urlRouterProvider) {
 	$urlRouterProvider
-	.otherwise('/index');
+	.otherwise('index');
 
 	$stateProvider
 		.state('index', {

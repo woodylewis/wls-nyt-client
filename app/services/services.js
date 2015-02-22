@@ -1,7 +1,6 @@
 'use strict';
 
 angular.module('services', [])
-/* SERVICE TO WRAP HTTP REQUESTS */
 .factory('apiService' , ['$q', '$http', function($q, $http) {
 	var articlesUrl = 'http://api.nytimes.com/svc/search/v2/articlesearch.json?q=Brian+Williams&begin_date=20100101&end_date=20150214&api-key=37e212d4173740831658ccd3ce5be553%3A9%3A2588854';
 
